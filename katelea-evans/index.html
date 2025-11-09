@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Katelea Evans</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="assets/branding/favicon.png">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+*:focus,
+*:active {
+  outline: none;
+}
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  background: radial-gradient(circle at top left, #1b1024 0%, #0b0b0d 25%, #070708 70%, #050506 100%);
+  color: #ffffff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+}
+.sparkle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,140,255,1) 0%, rgba(100,60,180,0.2) 70%, transparent 100%);
+  pointer-events: none;
+  opacity: 0;
+  animation: sparkleAnim 6s infinite ease-in-out;
+}
+@keyframes sparkleAnim {
+  0% { transform: scale(0.2); opacity: 0; }
+  15% { opacity: 1; transform: scale(1); }
+  60% { opacity: 0.8; transform: scale(1.2); }
+  100% { transform: scale(0.2); opacity: 0; }
+}
+.wrapper {
+  width: 100%;
+  max-width: 640px;
+  padding: 24px 10px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+  z-index: 2;
+}
+.profile-image {
+  width: 88px;
+  height: 88px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+}
+.header-block {
+  text-align: center;
+}
+.header-block h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.header-block p {
+  font-size: 0.78rem;
+  opacity: 0.76;
+  margin-top: 4px;
+}
+.cards {
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+.card {
+  width: 100%;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: rgba(20, 20, 25, 0.35);
+  border-radius: 8px;
+  border: 1px solid rgba(160,140,255,0.15);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  cursor: pointer;
+  transition: all 160ms ease-out;
+  user-select: none;
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  display: block;
+}
+.card-label {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+}
+.pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.pill {
+  background: rgba(150,150,180,0.1);
+  border: 1px solid rgba(180,160,255,0.2);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.72rem;
+  color: #f0f0f0;
+  white-space: nowrap;
+  transition: all 140ms ease;
+}
+.card:hover {
+  border-color: rgba(142,95,255,0.85);
+  box-shadow: 0 0 18px rgba(142,95,255,0.3);
+  transform: translateY(-1px);
+  background: rgba(25, 25, 35, 0.45);
+}
+.card:hover .card-label {
+  color: #c28dff;
+}
+.card:hover .pill {
+  border-color: rgba(142,95,255,0.45);
+  background: rgba(150,130,255,0.15);
+}
+.card:active {
+  transform: translateY(1px) scale(0.99);
+  box-shadow: 0 0 10px rgba(142,95,255,0.13);
+}
+.footer {
+  width: 100%;
+  text-align: center;
+  font-size: 0.7rem;
+  opacity: 0.82;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  z-index: 2;
+}
+.footer a {
+  margin-left: 4px;
+  color: #a46cff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 140ms ease-out, text-shadow 140ms ease-out;
+}
+.footer a:hover {
+  color: #e6b8ff;
+  text-shadow: 0 0 8px rgba(230,184,255,0.9);
+}
+.footer a:active {
+  color: #8f5fff;
+  text-shadow: none;
+}
+@media (max-width: 480px) {
+  .wrapper {
+    max-width: 100%;
+    padding: 18px 8px 14px;
+    gap: 14px;
+  }
+  .profile-image {
+    width: 76px;
+    height: 76px;
+  }
+  .header-block h3 {
+    font-size: 1rem;
+  }
+  .header-block p {
+    font-size: 0.72rem;
+  }
+  .card {
+    padding: 12px 10px;
+    gap: 8px;
+  }
+  .card-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .card-label {
+    font-size: 0.8rem;
+  }
+  .pill {
+    font-size: 0.68rem;
+  }
+  .footer {
+    font-size: 0.65rem;
+  }
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <img src="assets/images/profile.webp" alt="Profile" class="profile-image">
+  <div class="header-block">
+    <h3>Katelea Evans</h3>
+    <p>Connect with me across the platforms I'm on.</p>
+  </div>
+  <div class="cards">
+    <div class="card" data-link="https://www.instagram.com/katelea03_/">
+      <div class="card-header">
+        <img src="assets/icons/instagram.png" alt="Instagram" class="card-icon">
+        <div class="card-label"><b>Instagram</b></div>
+      </div>
+      <div class="pill-group">
+        <div class="pill">21 Posts</div>
+        <div class="pill">980+ Followers</div>
+        <div class="pill">870+ Following</div>
+      </div>
+    </div>
+
+    <div class="card" data-link="https://www.snapchat.com/add/kateleaevans">
+      <div class="card-header">
+        <img src="assets/icons/snapchat.png" alt="SnapChat" class="card-icon">
+        <div class="card-label"><b>SnapChat</b></div>
+      </div>
+      <div class="pill-group">
+        <div class="pill">133K+ SnapScore</div>
+      </div>
+    </div>
+
+    <div class="card" data-link="https://www.tiktok.com/@kateleaevans">
+      <div class="card-header">
+        <img src="assets/icons/tiktok.png" alt="TikTok" class="card-icon">
+        <div class="card-label"><b>TikTok</b></div>
+      </div>
+      <div class="pill-group">
+        <div class="pill">30+ Posts</div>
+        <div class="pill">890+ Following</div>
+        <div class="pill">4.1K+ Followers</div>
+        <div class="pill">5K+ Likes</div>
+      </div>
+    </div>
+
+    <div class="card" data-link="https://www.youtube.com/@KateleaEvans">
+      <div class="card-header">
+        <img src="assets/icons/youtube.png" alt="YouTube" class="card-icon">
+        <div class="card-label"><b>YouTube</b></div>
+      </div>
+      <div class="pill-group">
+        <div class="pill">10+ Subscribers</div>
+        <div class="pill">2 Videos</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <span>Powered by</span><a href="#" target="_blank" rel="noopener noreferrer">NexusByte</a>
+</div>
+<script>
+document.querySelectorAll(".card").forEach(function(card) {
+  card.addEventListener("click", function() {
+    var link = this.getAttribute("data-link");
+    if (link) window.location.href = link;
+  });
+});
+
+const sparkleCount = 25;
+for (let i = 0; i < sparkleCount; i++) {
+  const s = document.createElement("div");
+  s.classList.add("sparkle");
+  const size = Math.random() * 12 + 8;
+  s.style.width = size + "px";
+  s.style.height = size + "px";
+  s.style.left = Math.random() * 100 + "%";
+  s.style.top = Math.random() * 100 + "%";
+  s.style.animationDelay = (Math.random() * 6) + "s";
+  document.body.appendChild(s);
+}
+</script>
+</body>
+</html>
